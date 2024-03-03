@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+service Transfer {
+  rpc message_delivery(Transfer_Request) returns (Transfer_Response) {}
+}
+
+
+// Message that will be used for all requests
+// id: client / branch id
+// operationType: Type of Operation (query / withdraw / deposit)
+// amount: amount to be deposited / withdrawn (not used in case of query operation)
+// propagate: indicated whether to propagate the request or not
+// when a customer sends a request to a branch this will be set to true
+// but when a branch sends a request to a customer this will be false to prevent an infinite loop
+message Transfer_Request  {
+  uint64 id = 1;
+  string operation_type = 2;
+  int64 amount = 3;
+  bool propagate = 4;
+}
+
+
+// Message that will be used as the response for all transfer requests
+// interface: Type of Operation (query / withdraw / deposit)
+// result: result of the operation (success / failure / invalid)
+// balance: balance of the concerned branch after performing an operation
+message Transfer_Response {
+  uint64 id = 1;
+  string interface = 2;
+  string result = 3;
+  int64 balance = 4;
+}

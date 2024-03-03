@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "recv": [
+      {
+        "interface": "query",
+        "result": "success",
+        "balance": 400
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "recv": [
+      {
+        "interface": "deposit",
+        "result": "success"
+      },
+      {
+        "interface": "query",
+        "result": "success",
+        "balance": 570
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "recv": [
+      {
+        "interface": "withdraw",
+        "result": "success"
+      },
+      {
+        "interface": "query",
+        "result": "success",
+        "balance": 500
+      }
+    ]
+  }
+]
